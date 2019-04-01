@@ -2,14 +2,14 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/kevinchan159/.oh-my-zsh
+export ZSH=/Users/kevinchan/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #
 # UNCOMMENT NEXT LINE:
-# ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -62,6 +62,7 @@ export ZSH=/Users/kevinchan159/.oh-my-zsh
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  virtualenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -95,3 +96,44 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Postgres
+alias startpostgres="brew services start postgresql"
+alias stoppostgres="brew services stop postgresql"
+
+# Git
+alias gs="git status"
+alias gd="git diff"
+alias gaa="git add -A"
+alias gc="git commit"
+alias gp="git push"
+
+# VirtualEnv
+alias newvenv="python3 -m virtualenv venv"
+alias venv="source venv/bin/activate"
+
+# powerlevel9k
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rbenv vcs)
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+# Add a space in the first prompt
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%f"
+# Visual customisation of the second prompt line
+local user_symbol="$"
+if [[ $(print -P "%#") =~ "#" ]]; then
+    user_symbol = "#"
+fi
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%} $user_symbol%{%b%f%k%F{yellow}%} %{%f%}"
+
+
+source /usr/local/bin/activate.sh
+
+# fastlane
+export PATH="$HOME/.fastlane/bin:$PATH"
+
+# Python HTTP Server
+alias python-httpserver="python -m SimpleHTTPServer 8000"
+
+# Autojump
+[[ -s /Users/kevinchan/.autojump/etc/profile.d/autojump.sh ]] && source /Users/kevinchan/.autojump/etc/profile.d/autojump.sh
+autoload -U compinit && compinit -u

@@ -1,7 +1,15 @@
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+call vundle#end()
+filetype plugin indent on
 " sensible.vim - Defaults everyone can agree on
 " Maintainer:   Tim Pope <http://tpo.pe/>
 " Version:      1.1
-
 if &compatible
   finish
 else
@@ -128,17 +136,53 @@ augroup END
 
 " ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
 
 " airline theme
-" let g:airline_theme= 'solarized'
-" let g:airline_solarized_bg='dark'
+let g:airline_powerline_fonts = 1
+let g:airline_theme= 'deus'
+set t_Co=256
 syntax enable
 
 set background=dark
 set termguicolors
-colorscheme material-monokai
-let g:airline_theme='materialmonokai'
-let g:materialmonokai_subtle_airline=1
-
 set encoding=utf8
+set mouse=a
 
+" Autoformat
+noremap <a> :Autoformat<CR>
+
+" Set highlight search
+set hlsearch
+" Press Space to turn off highlighting and clear any message already displayed.
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+" Setup copy to clipboard
+set clipboard=unnamedplus
+
+" ale
+" let g:ale_sign_error = '✘'
+" let g:ale_sign_warning = '⚠'
+highlight ALEErrorSign ctermbg=NONE ctermfg=red
+highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+let g:ale_linters = {
+\'javascript': ['flow', 'eslint'],
+\}
+let g:ale_fixers = {
+\'javascript': ['eslint'],
+\}
+
+" highlight current line
+set cursorline
+hi cursorline cterm=none term=none
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+hi CursorLine cterm=NONE ctermbg=240 ctermfg=NONE
+
+" Syntax highlighting
+set runtimepath+=~/.vim/bundle/swift.vim
+
+" NERDTree
+map <C-t> :NERDTreeToggle<CR>
