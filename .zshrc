@@ -9,7 +9,8 @@ export ZSH=/Users/kevinchan/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #
 # UNCOMMENT NEXT LINE:
-ZSH_THEME="powerlevel10k/powerlevel10k"
+#ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="sorin"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -105,6 +106,7 @@ alias stoppostgres="brew services stop postgresql"
 alias gs="git status"
 alias gd="git diff"
 alias gaa="git add -A"
+alias gch="git checkout"
 alias gc="git commit"
 alias gp="git push"
 
@@ -139,3 +141,6 @@ alias python-httpserver="python -m SimpleHTTPServer 8000"
 # Autojump
 [[ -s /Users/kevinchan/.autojump/etc/profile.d/autojump.sh ]] && source /Users/kevinchan/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
+
+# Prezto
+source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
