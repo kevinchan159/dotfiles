@@ -1,4 +1,5 @@
 # If you come from bash you might have to change your $PATH.
+# ni
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
@@ -10,7 +11,8 @@ export ZSH=/Users/kevinchan/.oh-my-zsh
 #
 # UNCOMMENT NEXT LINE:
 #ZSH_THEME="powerlevel10k/powerlevel10k"
-ZSH_THEME="sorin"
+#ZSH_THEME="sorin"
+ZSH_THEME="3den"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -142,5 +144,12 @@ alias python-httpserver="python -m SimpleHTTPServer 8000"
 [[ -s /Users/kevinchan/.autojump/etc/profile.d/autojump.sh ]] && source /Users/kevinchan/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
 
-# Prezto
-source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# SSH AppDev backend servers
+alias ssh-transit-dev="ssh -i ~/server.pem appdev@transit-testflight.cornellappdev.com"
+alias ssh-transit-prod="ssh -i ~/server.pem appdev@transit-backend.cornellappdev.com"
+alias ssh-transit-ghopper="ssh -i ~/server.pem appdev@157.230.65.212"
+
