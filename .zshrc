@@ -153,3 +153,5 @@ alias ssh-transit-dev="ssh -i ~/server.pem appdev@transit-testflight.cornellappd
 alias ssh-transit-prod="ssh -i ~/server.pem appdev@transit-backend.cornellappdev.com"
 alias ssh-transit-ghopper="ssh -i ~/server.pem appdev@157.230.65.212"
 
+# direnv
+eval "$(direnv hook zsh)"
