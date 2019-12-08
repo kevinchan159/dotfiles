@@ -155,3 +155,9 @@ alias ssh-transit-ghopper="ssh -i ~/server.pem appdev@157.230.65.212"
 
 # direnv
 eval "$(direnv hook zsh)"
+
+[ -s "/Users/kevinchan/.scm_breeze/scm_breeze.sh" ] && source "/Users/kevinchan/.scm_breeze/scm_breeze.sh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
